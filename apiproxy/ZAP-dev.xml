@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="5" name="ZAP-dev">
+    <Basepaths>/zap</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1530338863728</CreatedAt>
+    <CreatedBy>robinm@cornastone.co.za</CreatedBy>
+    <Description>This proxy will be published as mock,sand,test or prod</Description>
+    <DisplayName>ZAP-Source</DisplayName>
+    <LastModifiedAt>1531774416451</LastModifiedAt>
+    <LastModifiedBy>robinm@cornastone.co.za</LastModifiedBy>
+    <ManifestVersion>SHA-512:203ba5d32a5a993af287738e2064ae8d070bf312680b4af93d7e7361691936889c599eeba27d5452a6272ebe52c2ae9c08f713ef066e50ce6b3dd30b8e99174a</ManifestVersion>
+    <Policies>
+        <Policy>ExtractKeyAndId</Policy>
+        <Policy>RF_401</Policy>
+        <Policy>RF_404</Policy>
+        <Policy>RF_Gatekeeper</Policy>
+        <Policy>Set-CORS</Policy>
+        <Policy>buildTargetURL</Policy>
+        <Policy>checkAPIKey</Policy>
+        <Policy>checkProductAccess</Policy>
+        <Policy>mockResponseFromOAS</Policy>
+        <Policy>setTargetURL</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>openapi://association.json</Resource>
+        <Resource>jsc://buildTargetURL.js</Resource>
+        <Resource>jsc://checkProductAccess.js</Resource>
+        <Resource>jsc://oas.js</Resource>
+        <Resource>jsc://setTargetURL.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+        <TargetEndpoint>zapProd</TargetEndpoint>
+        <TargetEndpoint>zapSandbox</TargetEndpoint>
+        <TargetEndpoint>zapTest</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

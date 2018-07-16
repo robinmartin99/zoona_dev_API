@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF_401">
+    <DisplayName>RF_401</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+{
+  "error": "basePath '@proxy.basepath#' not allowed. Only @verifyapikey.checkAPIKey.apiproduct.BasePaths#"
+}
+			</Payload>
+            <StatusCode>401</StatusCode>
+            <ReasonPhrase>Unauthorised</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Manifest name="manifest">
+    <Policies>
+        <VersionInfo resourceName="ExtractKeyAndId" version="SHA-512:870e5e74f0e73b5350b6f611e9ddda32f30287c1636af98b40204a0b4182ce70d7132d6166faa40aa82be061f80c056054932db0c97f05af01d5158a19ed66d1"/>
+        <VersionInfo resourceName="RF_401" version="SHA-512:d45b4556aac924be5f506978016dbd6e52e458e771072d4f0ab33833f2f5741ec38ef2b8cf26a0acdaad680ad6f724376abe8a77cbfb17ac7704adebc80f3532"/>
+        <VersionInfo resourceName="RF_404" version="SHA-512:b7471327afb468c5b1992b3896c5de43fb7bd5968029c96066d6fe17b7fac374347cfbe11ef23f15d7cb810491ba4fda990603f929003cef0bbe8c65bd7a927e"/>
+        <VersionInfo resourceName="RF_Gatekeeper" version="SHA-512:6380682b4ae74307139fa0f462f416fc09959c72511f71c4e87019929340aad6b6716b5ed2944ea5dfca49daf1216f93bc3dd8752e50f63aa066355a4e295999"/>
+        <VersionInfo resourceName="Set-CORS" version="SHA-512:5c086607ec8c2212a8f751e8542c7a3f722aaaa629058281ae6e2dab33935ef375575d115b13048aae5fe54a25007051e659b235bc34c24e067760a31cf8ccf9"/>
+        <VersionInfo resourceName="buildTargetURL" version="SHA-512:e05101564282afb4e65ea1adb142e1ddbcdaa0353589018adf6d10d2e444de836467e5e6ac0b473f5edadaf9e3a8667006369a5a3f44c74adaf3896a337d74fa"/>
+        <VersionInfo resourceName="checkAPIKey" version="SHA-512:164affe3f21b59948058dcf4a805e9591dbc5b9a101b8d7c7eecb8617c4450d587f3c68917d44318ab61b8236f48de2d052fd8ee0282fefcb92313a2e21e618a"/>
+        <VersionInfo resourceName="checkProductAccess" version="SHA-512:6743c605d72157b441559d9b0d2fe61200ac0433c37fa4a7ffd915b6b2213a3a523c08459093b74b6818455c54f82fdc41055343b84c3903ada7cc1f45f8f21d"/>
+        <VersionInfo resourceName="mockResponseFromOAS" version="SHA-512:9d26ecb1db3115a790530b14f24921351ceb239da1210d939f8027b3e80e6913cc5eed08bc920dc7d3a2d773bedc34e2d7bd7a56ea11a3124433d463ce273827"/>
+        <VersionInfo resourceName="setTargetURL" version="SHA-512:2c0217f9caaf55eb470ba0cc1249f9a571449fc4ebbac2da851b19ff9d2b3603f5f621cfe0fa13241a57342b99e50a066d4f497cdb6e89e9e679d051ed468d3b"/>
+    </Policies>
+    <ProxyEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:408096a2a123197281e2bd0571dafab3cc13b0ce20c9cb019695d3ad29b51089b40a97111aba28211e79d04118766b41471de4c4526beef521e9dbe70ea72db7"/>
+    </ProxyEndpoints>
+    <Resources>
+        <VersionInfo resourceName="jsc://buildTargetURL.js" version="SHA-512:917a69c735e821e45749ea3a903e15ed9d10c47ad8bed8b61520eeb79f52821c094867cf7f819a04d43fc83208d28458ba0d0244c75c788d92aebf1ebea65ccf"/>
+        <VersionInfo resourceName="jsc://checkProductAccess.js" version="SHA-512:552c920ae144a051bf34fc4c809a8551be0b45d1b3480b57a9853357c40a8f89ef7d257548ff929f915dd11075d277aa2cb02d619bfb7eda651253fd10d793e1"/>
+        <VersionInfo resourceName="jsc://oas.js" version="SHA-512:910cea6b8e4f966c36213b92e23fc72a6869dd728dfba9b2351fca72065620f3b879eb6b460b3189cc7f813d4d2a0a755c45b2d02e0ad7d906c0dfbfb9724f2e"/>
+        <VersionInfo resourceName="jsc://setTargetURL.js" version="SHA-512:fc0f9952497c1a0279eadfda6896bc9a80f1fd9b9affa9227216b520400800e2fffa93da48d27e2ab7e2dcdc43b529d82a4fd7baecbf2c70a97a3559dd2e9acc"/>
+        <VersionInfo resourceName="openapi://association.json" version="SHA-512:271de385d6f0657da0b9d1714b6dd29c8adde14b4902d08b782d517444bc8612833c382accfc300f67959ffdf62a3894ff12e3c9049aa5768ad210a1ee7c3c2c"/>
+    </Resources>
+    <SharedFlows/>
+    <TargetEndpoints>
+        <VersionInfo resourceName="default" version="SHA-512:2fe065a1b79103ef2a5a380615f7f5ee7b1c9387bd603aea96f8203eb0bb3aa66ae4ee0c520e6f864ce5b762a2ed8838c36c1d9d9cd82fbe8fe8be59eb8a8263"/>
+        <VersionInfo resourceName="zapProd" version="SHA-512:19099c8a8abe34f343d341c3fcd7985805d757b03f02dcfcef0bdcd93444fc3addb8d0685bfbabfad36360feb8935a0f6ccedf26b6ea9572692344f6b8ca059b"/>
+        <VersionInfo resourceName="zapSandbox" version="SHA-512:707f41e72cc97109e97cf8f0985538950d9766fa7eb65a4a72dd80f2645167d94ead8f99967293a760db1b7f0c836006f8bdc29a32098e1b7fa8d507647d0554"/>
+        <VersionInfo resourceName="zapTest" version="SHA-512:5fb31e5353662fd4a42c22c0469170b3f493ecae67094418690ad95ad42123d2f3711c2e38993d27132481b8dc9d21c229f4eee0e298653718d501703e05e5be"/>
+    </TargetEndpoints>
+</Manifest>

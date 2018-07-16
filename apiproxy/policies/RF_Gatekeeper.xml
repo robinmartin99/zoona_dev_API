@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="false" name="RF_Gatekeeper">
+    <DisplayName>RF_Gatekeeper</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+{
+  "gatekeeper": "Preventing an endpoint being called",
+  "request.url" : "@request.url#",
+  "verb": "@request.verb#",
+  "incoming path": "@proxy.pathsuffix#",
+  "target.name": "@target.name#",
+  "target.url": "@target.url#",
+  "target.pathsuffix": "@target.pathsuffix#",
+  "target.basepath": "@target.basepath#",
+  "target.basepath.with.query": "@target.basepath.with.query#",
+  "target.copy.queryparams": "@target.copy.queryparams#",
+  "target.copy.pathsuffix": "@target.copy.pathsuffix#"
+}            </Payload>
+            <StatusCode>307</StatusCode>
+            <ReasonPhrase>Temporary Redirect</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

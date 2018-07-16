@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="zapProd">
+    <Description>Endpoint for Zoona production</Description>
+    <FaultRules/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>RF_Gatekeeper</Name>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>Set-CORS</Name>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows/>
+    <HTTPTargetConnection>
+        <Properties/>
+        <URL>https://openapi-gateway.zoona.network/</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

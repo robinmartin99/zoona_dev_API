@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules/>
+    <DefaultFaultRule name="always-enforce-fault-rule">
+        <Step>
+            <Name>Set-CORS</Name>
+        </Step>
+        <AlwaysEnforce>true</AlwaysEnforce>
+    </DefaultFaultRule>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>checkAPIKey</Name>
+                <Condition>(request.verb != "OPTIONS") and ((proxy.basepath != "/mock") and (request.header.x-api-test != "mock"))</Condition>
+            </Step>
+            <Step>
+                <Name>checkProductAccess</Name>
+                <Condition>(request.verb != "OPTIONS") and ((proxy.basepath != "/mock") and (request.header.x-api-test != "mock"))</Condition>
+            </Step>
+            <Step>
+                <Name>RF_401</Name>
+                <Condition>(request.verb != "OPTIONS") and ((proxy.basepath != "/mock") and (request.header.x-api-test != "mock")) and (baseAccessAllowed != true)</Condition>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request>
+            <Step>
+                <Name>buildTargetURL</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="preFlight">
+            <Description>CORS support for browsers</Description>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/**") and (request.verb = "OPTIONS")</Condition>
+        </Flow>
+        <Flow name="heartbeat">
+            <Description>Indicate availability</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/heartbeat") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="onboardRequest">
+            <Description>Merchant signon request</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/merchant/onboard") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="balanceRequest">
+            <Description>Merchant checks balance</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/merchant/balance") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="transactionRequest">
+            <Description>Merchant check transactions made</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/merchant/transactions") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="requestPaymentCode">
+            <Description>Merchant request for payment</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/payment/code") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="queryPaymentCode">
+            <Description>Merchant queries payment Code</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/payment/code/*") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="deletePaymentCode">
+            <Description>Merchant cancels a requested payment</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/payment/code/*") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="registerWebhook">
+            <Description>Merchant registers a webhook</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/merchant/notification") and (request.verb = "POST")</Condition>
+        </Flow>
+        <Flow name="listWebhooks">
+            <Description>Merchant requests webhook</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>((proxy.pathsuffix MatchesPath "/merchant/notification") || (proxy.pathsuffix MatchesPath "/merchant/notification/*") )and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="deleteWebhook">
+            <Description>Merchant cancels a webhook</Description>
+            <Request>
+                <Step>
+                    <Name>mockResponseFromOAS</Name>
+                    <Condition>(proxy.basepath == "/mock") || (request.header.x-api-test == "mock")</Condition>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/merchant/notification/cancel/*") and (request.verb = "DELETE")</Condition>
+        </Flow>
+        <Flow name="catchAll">
+            <Description>Fall through notification</Description>
+            <Request>
+                <Step>
+                    <Name>RF_404</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <HTTPProxyConnection>
+        <BasePath>/zap</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="NoRoute">
+        <Condition>request.verb == "OPTIONS"</Condition>
+    </RouteRule>
+    <RouteRule name="sandbox">
+        <TargetEndpoint>zapSandbox</TargetEndpoint>
+        <Condition>(proxy.basepath == "/sand") || (request.header.x-api-test == "sand")</Condition>
+    </RouteRule>
+    <RouteRule name="testbed">
+        <TargetEndpoint>zapTest</TargetEndpoint>
+        <Condition>(proxy.basepath == "/test") || (request.header.x-api-test == "test")</Condition>
+    </RouteRule>
+    <RouteRule name="SendEverythingElseTo">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+    <RouteRule name="No Route, not used"/>
+</ProxyEndpoint>

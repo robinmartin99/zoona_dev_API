@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractKeyAndId">
+    <DisplayName>ExtractKeyAndId</DisplayName>
+    <Properties/>
+    <Header name="apikey">
+        <Pattern ignoreCase="false">{request.header.apikey}</Pattern>
+    </Header>
+    <Header name="correlation-id">
+        <Pattern ignoreCase="false">{request.header.x-api-correlation-id}</Pattern>
+    </Header>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>apigee</VariablePrefix>
+</ExtractVariables>
